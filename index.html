@@ -1,115 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine's Day Game</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- Начальный экран -->
-        <div id="screen1" style="position: relative; width: 100%; height: 100vh;">
-          <img src="images/сердце1-0.png" alt="Heart" class="heart-animation"
-               style="width: 190px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);">
-          <button onclick="showValentineQuestion()"
-                  style="width: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, 40%);">
-            Click
-          </button>
-        </div>
-
-
-
-        <!-- Экран с вопросом -->
-        <div id="screen2" class="hidden">
-            <div class="hearts-bg">
-                <!-- Падающие сердечки -->
-                <div class="heart" style="left: 0%; animation-delay: 0s;">❤️</div>
-                <div class="heart" style="left: 2%; animation-delay: 1s;">❤️</div>
-                <div class="heart" style="left: 3%; animation-delay: 2s;">❤️</div>
-                <div class="heart" style="left: 4%; animation-delay: 3s;">❤️</div>
-                <div class="heart" style="left: 5%; animation-delay: 4s;">❤️</div>
-                <div class="heart" style="left: 6%; animation-delay: 5s;">❤️</div>
-                <div class="heart" style="left: 7%; animation-delay: 6s;">❤️</div>
-                <div class="heart" style="left: 8%; animation-delay: 7s;">❤️</div>
-                <div class="heart" style="left: 9%; animation-delay: 8s;">❤️</div>
-                <div class="heart" style="left: 12%; animation-delay: 9s;">❤️</div>
-                <div class="heart" style="left: 15%; animation-delay: 10s;">❤️</div>
-                <div class="heart" style="left: 13%; animation-delay: 11s;">❤️</div>
-            </div>
-            <p class="pixel-text choice-box">Will you be my valentine?</p>
-            <button onclick="chooseYes()">Yes</button>
-            <button onclick="chooseNo()">No</button>
-        </div>
-
-        <!-- Экран с грустным изображением -->
-        <div id="screen3" class="hidden">
-            <img src="images/игорь грустный.png" alt="Sad Him" style="width: 200px;">
-            <p class="pixel-text choice-box">No problem! We'll work on your taste!</p>
-            <button onclick="tryAgain()">Try Again</button>
-        </div>
-
-        <!-- Экран с вами и Игорем -->
-        <div id="screen5" class="hidden">
-            <div class="flowers-bg">
-                <!-- Падающие цветочки -->
-                <div class="flower" style="left: 0%; animation-delay: 0s;">🌸</div>
-                <div class="flower" style="left: 2%; animation-delay: 1s;">🌸</div>
-                <div class="flower" style="left: 3%; animation-delay: 2s;">🌸</div>
-                <div class="flower" style="left: 4%; animation-delay: 3s;">🌸</div>
-                <div class="flower" style="left: 5%; animation-delay: 4s;">🌸</div>
-                <div class="flower" style="left: 6%; animation-delay: 5s;">🌸</div>
-                <div class="flower" style="left: 7%; animation-delay: 6s;">🌸</div>
-                <div class="flower" style="left: 8%; animation-delay: 7s;">🌸</div>
-                <div class="flower" style="left: 9%; animation-delay: 8s;">🌸</div>
-                <div class="flower" style="left: 12%; animation-delay: 9s;">🌸</div>
-                <div class="flower" style="left: 15%; animation-delay: 10s;">🌸</div>
-                <div class="flower" style="left: 13%; animation-delay: 11s;">🌸</div>
-            </div>
-            <img src="images/игорь улыбается.png" alt="Me" style="width: 150px; position: absolute; left: 48%;">
-            <img src="images/я.png" alt="Happy Him" style="width: 150px; position: top; right: 0%;">
-            <button onclick="showDatePlan()" style="width: 120px; position: top; bottom: -10px; left: -90px;">Next</button>
-        </div>
-
-        <!-- Экран с планом свидания -->
-        <div id="screen6" class="hidden">
-            <p class="pixel-text">Our Plan:</p>
-            <div class="plan-item">
-                <p class="pixel-text">17:00 Restaurant</p>
-                <img src="images/блюдо.png" alt="Food">
-            </div>
-            <div class="plan-item">
-                <p class="pixel-text">19:00 Cinema</p>
-                <img src="images/кино.png" alt="Cinema">
-            </div>
-            <div class="plan-item">
-                <p class="pixel-text">22:00 Wine and Snacks</p>
-                <img src="images/бокал.png" alt="Wine">
-            </div>
-        </div>
-
-        <!-- Финальный экран -->
-        <div id="screen7" class="hidden">
-            <div class="hearts-bg">
-                <!-- Падающие сердечки -->
-                <div class="heart" style="left: 0%; animation-delay: 0s;">❤️</div>
-                <div class="heart" style="left: 2%; animation-delay: 1s;">❤️</div>
-                <div class="heart" style="left: 3%; animation-delay: 2s;">❤️</div>
-                <div class="heart" style="left: 4%; animation-delay: 3s;">❤️</div>
-                <div class="heart" style="left: 5%; animation-delay: 4s;">❤️</div>
-                <div class="heart" style="left: 6%; animation-delay: 5s;">❤️</div>
-                <div class="heart" style="left: 7%; animation-delay: 6s;">❤️</div>
-                <div class="heart" style="left: 8%; animation-delay: 7s;">❤️</div>
-                <div class="heart" style="left: 9%; animation-delay: 8s;">❤️</div>
-                <div class="heart" style="left: 12%; animation-delay: 9s;">❤️</div>
-                <div class="heart" style="left: 15%; animation-delay: 10s;">❤️</div>
-                <div class="heart" style="left: 13%; animation-delay: 11s;">❤️</div>
-            </div>
-            <img src="images/я.png" alt="Me" style="width: 150px; position: top; right: 0%;">
-            <img src="images/игорь улыбается.png" alt="Happy Him" style="width: 150px; position: top; left: 48px;">
-            <p class="pixel-text choice-box" style="bottom:40px">Happy Valentine's Day!</p>
-        </div>
+  <div class="container">
+    <!-- Начальный экран -->
+    <div id="screen1" style="position: relative; width: 100%; height: 100vh;">
+      <img src="images/сердце1-0.png" alt="Heart" class="heart-animation"
+           style="width: 190px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);" />
+      <button onclick="showValentineQuestion()"
+              style="width: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, 40%);">
+        Click
+      </button>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Экран с вопросом -->
+    <div id="screen2" class="hidden" style="position: relative; width: 100%; height: 100vh;">
+      <div class="hearts-bg">
+        <!-- Падающие сердечки -->
+        <div class="heart" style="left: 0%; animation-delay: 0s;">❤️</div>
+        <div class="heart" style="left: 2%; animation-delay: 1s;">❤️</div>
+        <div class="heart" style="left: 3%; animation-delay: 2s;">❤️</div>
+        <div class="heart" style="left: 4%; animation-delay: 3s;">❤️</div>
+        <div class="heart" style="left: 5%; animation-delay: 4s;">❤️</div>
+        <div class="heart" style="left: 6%; animation-delay: 5s;">❤️</div>
+        <div class="heart" style="left: 7%; animation-delay: 6s;">❤️</div>
+        <div class="heart" style="left: 8%; animation-delay: 7s;">❤️</div>
+        <div class="heart" style="left: 9%; animation-delay: 8s;">❤️</div>
+        <div class="heart" style="left: 12%; animation-delay: 9s;">❤️</div>
+        <div class="heart" style="left: 15%; animation-delay: 10s;">❤️</div>
+        <div class="heart" style="left: 13%; animation-delay: 11s;">❤️</div>
+      </div>
+      <p class="pixel-text choice-box" style="text-align: center;">Will you be my valentine?</p>
+      <div style="text-align: center;">
+        <button onclick="chooseYes()">Yes</button>
+        <button onclick="chooseNo()">No</button>
+      </div>
+    </div>
+
+    <!-- Экран с грустным изображением -->
+    <div id="screen3" class="hidden" style="position: relative; width: 100%; height: 100vh;">
+      <img src="images/игорь грустный.png" alt="Sad Him" style="width: 200px; display: block; margin: 50px auto;" />
+      <p class="pixel-text choice-box" style="text-align: center;">No problem! We'll work on your taste!</p>
+      <div style="text-align: center;">
+        <button onclick="tryAgain()">Try Again</button>
+      </div>
+    </div>
+
+    <!-- Экран с вами и Игорем -->
+    <div id="screen5" class="hidden" style="position: relative; width: 100%; height: 100vh;">
+      <div class="flowers-bg">
+        <!-- Падающие цветочки -->
+        <div class="flower" style="left: 0%; animation-delay: 0s;">🌸</div>
+        <div class="flower" style="left: 2%; animation-delay: 1s;">🌸</div>
+        <div class="flower" style="left: 3%; animation-delay: 2s;">🌸</div>
+        <div class="flower" style="left: 4%; animation-delay: 3s;">🌸</div>
+        <div class="flower" style="left: 5%; animation-delay: 4s;">🌸</div>
+        <div class="flower" style="left: 6%; animation-delay: 5s;">🌸</div>
+        <div class="flower" style="left: 7%; animation-delay: 6s;">🌸</div>
+        <div class="flower" style="left: 8%; animation-delay: 7s;">🌸</div>
+        <div class="flower" style="left: 9%; animation-delay: 8s;">🌸</div>
+        <div class="flower" style="left: 12%; animation-delay: 9s;">🌸</div>
+        <div class="flower" style="left: 15%; animation-delay: 10s;">🌸</div>
+        <div class="flower" style="left: 13%; animation-delay: 11s;">🌸</div>
+      </div>
+      <img src="images/игорь улыбается.png" alt="Me" 
+           style="width: 150px; position: absolute; left: 48%; top: 50px; transform: translateX(-50%);" />
+      <img src="images/я.png" alt="Happy Him" 
+           style="width: 150px; position: absolute; right: 0; top: 50px;" />
+      <button onclick="showDatePlan()"
+              style="width: 120px; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">
+        Next
+      </button>
+    </div>
+
+    <!-- Экран с планом свидания -->
+    <div id="screen6" class="hidden" style="width: 100%; height: 100vh;">
+      <p class="pixel-text">Our Plan:</p>
+      <div class="plan-item">
+        <p class="pixel-text">17:00 Restaurant</p>
+        <img src="images/блюдо.png" alt="Food" />
+      </div>
+      <div class="plan-item">
+        <p class="pixel-text">19:00 Cinema</p>
+        <img src="images/кино.png" alt="Cinema" />
+      </div>
+      <div class="plan-item">
+        <p class="pixel-text">22:00 Wine and Snacks</p>
+        <img src="images/бокал.png" alt="Wine" />
+      </div>
+    </div>
+
+    <!-- Финальный экран -->
+    <div id="screen7" class="hidden" style="position: relative; width: 100%; height: 100vh;">
+      <div class="hearts-bg">
+        <!-- Падающие сердечки -->
+        <div class="heart" style="left: 0%; animation-delay: 0s;">❤️</div>
+        <div class="heart" style="left: 2%; animation-delay: 1s;">❤️</div>
+        <div class="heart" style="left: 3%; animation-delay: 2s;">❤️</div>
+        <div class="heart" style="left: 4%; animation-delay: 3s;">❤️</div>
+        <div class="heart" style="left: 5%; animation-delay: 4s;">❤️</div>
+        <div class="heart" style="left: 6%; animation-delay: 5s;">❤️</div>
+        <div class="heart" style="left: 7%; animation-delay: 6s;">❤️</div>
+        <div class="heart" style="left: 8%; animation-delay: 7s;">❤️</div>
+        <div class="heart" style="left: 9%; animation-delay: 8s;">❤️</div>
+        <div class="heart" style="left: 12%; animation-delay: 9s;">❤️</div>
+        <div class="heart" style="left: 15%; animation-delay: 10s;">❤️</div>
+        <div class="heart" style="left: 13%; animation-delay: 11s;">❤️</div>
+      </div>
+      <img src="images/я.png" alt="Me" 
+           style="width: 150px; position: absolute; right: 0; top: 50px;" />
+      <img src="images/игорь улыбается.png" alt="Happy Him" 
+           style="width: 150px; position: absolute; left: 48px; top: 50px;" />
+      <p class="pixel-text choice-box"
+         style="position: absolute; bottom: 40px; width: 100%; text-align: center;">
+        Happy Valentine's Day!
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
